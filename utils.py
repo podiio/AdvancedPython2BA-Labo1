@@ -2,24 +2,31 @@
 # Math library
 # Author: Sébastien Combéfis
 # Version: February 8, 2018
-
+from math import sqrt as sq
 def fact(n):
-	"""Computes the factorial of a natural number.
-	
-	Pre: -
-	Post: Returns the factorial of 'n'.
-	Throws: ValueError if n < 0
-	"""
-	pass
+	if n < 0 :
+		raise ValueError ('Must Be positive')
+	if n ==0:
+		return 1 
+	else :
+		return (n*fact(n-1))
+		
+
+
 
 def roots(a, b, c):
-	"""Computes the roots of the ax^2 + bx + x = 0 polynomial.
-	
-	Pre: -
-	Post: Returns a tuple with zero, one or two elements corresponding
-		to the roots of the ax^2 + bx + c polynomial.
-	"""
-	pass
+	delta = (b**2) - (4 * a * c)
+	if delta < 0:
+		return ()
+	elif delta == 0 :
+		return (-b/(2*a))
+	else :
+		x = (-b + sq(delta)) / (2 * a)
+		y = (-b - sq(delta)) / (2 * a)
+		return (y,x)
+		
+
+
 
 def integrate(function, lower, upper):
 	"""Approximates the integral of a fonction between two bounds
